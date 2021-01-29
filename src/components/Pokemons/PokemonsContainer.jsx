@@ -5,13 +5,16 @@ import {loadMoreAC, setEachPokemonAC, setPokemonsAC} from "../../Redux/pokemonsR
 import * as axios from "axios";
 
 
-const mapStateToProps = (state) => ({
-    pokemons: state.Pokemons.pokemons,
-    pokemon: state.Pokemons.pokemon,
-    displayedPokemons: state.Pokemons.displayedPokemons,
-    displayedCount: state.Pokemons.displayedCount,
-    totalPokemonsCount: state.Pokemons.totalPokemonsCount
-});
+const mapStateToProps = (state) => {
+    console.log('state', state);
+    return {
+        pokemons: state.Pokemons.pokemons,
+        pokemon: state.Pokemons.pokemon,
+        displayedPokemons: state.Pokemons.displayedPokemons,
+        displayedCount: state.Pokemons.displayedCount,
+        totalPokemonsCount: state.Pokemons.totalPokemonsCount
+    }
+}
 const mapDispatchToProps = (dispatch) => {
        return {
         onLoadMore: () => (dispatch(loadMoreAC())),
