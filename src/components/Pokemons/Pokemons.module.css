@@ -1,6 +1,11 @@
-.postsBlock {
-    padding: 10px;
+.pokemons {
+    display:grid;
+    grid-template-columns:2fr 1fr 2fr;
+    grid-template-rows: 4fr auto auto auto;
+    gap: 15px 15px;
+
 }
-.posts {
-    margin:10px;
+.pokemon {
+    display:grid;
+    justify-items: center;
 }

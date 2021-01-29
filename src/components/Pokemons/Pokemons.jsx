@@ -5,32 +5,41 @@ import * as axios from "axios";
 
 class Pokemons extends React.Component {
     componentDidMount() {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${25}`).then(response => {
+      /*  axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${25}`).then(response => {
+            response.data.results.forEach( i => axios.get(`${i.url}`).then(response => { this.props.setEachPokemon(response.data)}))
+            this.props.setPokemons(response.data.results)*/
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${25}`).then(response =>
             this.props.setPokemons(response.data.results)
-            }
         )
-    }
+
+    this.props.setEachPokemon('https://pokeapi.co/api/v2/pokemon/201/')}
+    /*getPokemonInfo = (url) => {
+
+    }*/
 
 
     render() {
-       return (
-           <div>
-                <div>
-                    {/*{this.props.pokemons.filter((poc, index) => index < 12).map(poc => <span key={poc.id}>
-                        <img src={poc.url}/>
-                        <span> {poc.name}</span>
-                    </span>)}*/}
-                    {this.props.displayedPokemons.filter((poc, index) => index < this.props.displayedCount).map(poc => <span key={poc.id}>
-                        <img src={poc.url}/>
-                        <span> {poc.name}</span>
-                    </span>)}
 
-                    <button onClick={this.props.onLoadMore}> Load More</button>
-                </div>
+
+
+        return (
+            <div className={style.pokemons}>
+                    {this.props.displayedPokemons.filter((poc, index) => index < this.props.displayedCount).map(poc =>
+                    <div key={poc.id} className={style.pokemon}>
+                    <img src={poc.url}/>
+                    <span> {poc.name}</span>
+                    { console.log(this.props.pokemon)
+                    }
+
+                    </div>)}
+
+                <button onClick={this.props.onLoadMore}> Load More</button>
+
             </div>
         )
 
-}}
+    }
+}
 
 
 export default Pokemons;
