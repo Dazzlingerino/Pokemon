@@ -8,7 +8,7 @@ import store from "./Redux/reduxStore";
 export let reRenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
+            <App store={store}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -16,7 +16,7 @@ export let reRenderEntireTree = (state) => {
 reRenderEntireTree(store.getState())
 ReactDOM.render(
     <React.StrictMode>
-        <App dispatch={store.dispatch.bind(store)} store={store}/>
+        <App store={store}/>
     </React.StrictMode>,
     document.getElementById('root')
 );

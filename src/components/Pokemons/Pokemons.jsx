@@ -4,32 +4,41 @@ import style from './Pokemons.module.css'
 import * as axios from "axios";
 
 class Pokemons extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pokemons: []
+        };
+    }
+
     componentDidMount() {
         /*  axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${25}`).then(response => {
               response.data.results.forEach( i => axios.get(`${i.url}`).then(response => { this.props.setEachPokemon(response.data)}))
               this.props.setPokemons(response.data.results)*/
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${999}`).then(response =>
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${25}`).then(response =>
             this.props.setPokemons(response.data.results)
         )
     }
-    /*getPokemonInfo = (url) => {
 
-    }*/
 
 
     render() {
-            this.props.setEachPokemon('https://pokeapi.co/api/v2/pokemon/2/')
+        this.props.displayedPokemons.forEach(item => {this.props.setEachPokemon(item.url)});
+        if (this.props.pokemon !== this.state.pokemons) {
+            this.setState({
+                pokemons: this.props.pokemon
+            });
+        }
 
-
+        console.log('this', this);
         return (
             <div className={style.pokemons}>
-                    {this.props.displayedPokemons.filter((poc, index) => index < this.props.displayedCount).map(poc =>
+                {console.log('this.state', this.state.pokemons)}
+                {this.state.pokemons.map(poc =>
                     <div key={poc.id} className={style.pokemon}>
-                    <img src={poc.url}/>
-                    <span> {poc.name}</span> <span> {poc.pokemon}</span>
-                    { console.log(this.props.pokemon)
-                    }
-
+                        <img src={poc.url}/>
+                        <span> {poc.name}</span>
+                        {poc.types && poc.types.map(currType => <span style={{color: "green"}}>{currType.type.name}</span>)}
                     </div>)}
 
                 <button onClick={this.props.onLoadMore}> Load More</button>

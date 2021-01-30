@@ -32,7 +32,9 @@ const pokemonsReducer = (state = initialState, action) => {
             console.log('action', action.payload);
             let data = state.pokemon;
             action.payload.then(result => {
-                data.push(result)
+                if (data.findIndex(item => item.name === result.name) === -1) {
+                    data.push(result)
+                }
             });
             let copyPokems = state.pokemons;
             action.payload.then(result => {
@@ -41,7 +43,7 @@ const pokemonsReducer = (state = initialState, action) => {
                 copyPokems[index].type = result.types}
         });
             console.log('data in reducer', data);
-            return {...state, pokemon: data, pokemons:copyPokems}
+            return {...state, pokemon: data, pokemons:copyPokems,displayedPokemons:copyPokems}
         default:
             return state;
     }
