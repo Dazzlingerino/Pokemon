@@ -5,6 +5,7 @@ const SET_POKEMONS = 'SET_POKEMONS';
 const SET_EACH_POKEMON = 'SET_EACH_POKEMON';
 
 
+
 let initialState = {
     pokemons: [],
     pokemon: [],
@@ -44,7 +45,7 @@ const pokemonsReducer = (state = initialState, action) => {
         });
             console.log('data in reducer', data);
             return {...state, pokemon: data, pokemons:copyPokems,displayedPokemons:copyPokems}
-        default:
+               default:
             return state;
     }
 }
@@ -52,7 +53,7 @@ const pokemonsReducer = (state = initialState, action) => {
 export const loadMoreAC = () => ({type: LOAD_MORE})
 export const setPokemonsAC = (pokemons) => ({type: SET_POKEMONS, pokemons})
 export const setEachPokemonAC = (url) => ({type: SET_EACH_POKEMON, payload: axios.get(url).then(result => result.data)})
-/*export const setEachPokemonAC = (url) => ({type: SET_EACH_POKEMON, payload: axios.get(url).then(result => result.data)}) // for picture*/
+
 
 
 export default pokemonsReducer;

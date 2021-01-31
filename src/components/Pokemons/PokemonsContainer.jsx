@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Pokemons from "./Pokemons";
-import {loadMoreAC, setEachPokemonAC, setPokemonsAC} from "../../Redux/pokemonsReducer";
+import {loadMoreAC, setEachPokemonAC, setEachPokemonImgAC, setPokemonsAC} from "../../Redux/pokemonsReducer";
 import * as axios from "axios";
 
 
@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
         onLoadMore: () => (dispatch(loadMoreAC())),
         setPokemons: (pokemons) => (dispatch(setPokemonsAC(pokemons))),
         setEachPokemon: (pokemon) => (dispatch(setEachPokemonAC(pokemon)))
+
     }}
 
 

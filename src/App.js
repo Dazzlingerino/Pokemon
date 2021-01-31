@@ -9,8 +9,10 @@ const App = (props) => {
       <div>
         <div className='app-wrapper'>
           <Header />
-          </div >
+          </div>
+          <div style={{maxWidth:'1200px',margin:'0 auto'}}>
            <PokemonsContainer store={props.store} />
+          </div>
           </div>
         );
 }
