@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import PokemonsContainer from "./components/Pokemons/PokemonsContainer";
+import PokemonsHook from "./components/Pokemons/PokemonHOOKs";
 
 
 const App = (props) => {
@@ -11,7 +12,8 @@ const App = (props) => {
           <Header />
           </div>
           <div style={{maxWidth:'1200px',margin:'0 auto'}}>
-           <PokemonsContainer store={props.store} />
+           {/*<PokemonsContainer store={props.store} />*/}
+           <PokemonsHook />
           </div>
           </div>
         );

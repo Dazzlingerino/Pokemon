@@ -55,12 +55,13 @@ class Pokemons extends React.Component {
                             <picture className={s.picture}>
                                 <source className={s.pocIMG} media={"(min-width:725px)"}
                                         srcSet={`https://pokeres.bastionbot.org/images/pokemon/${poc.id}.png/`}/>
-                                <img className={s.pocIMG} src={"https://poketouch.files.wordpress.com/2020/11/die_cast_poke_ball_replica.jpg"}/>
+                                <img className={s.pocIMG}
+                                     src={"https://poketouch.files.wordpress.com/2020/11/die_cast_poke_ball_replica.jpg"}/>
                             </picture>
                             <div className={s.pokeName}> {poc.name}</div>
                             {<div className={s.typesBox}> {poc.types && poc.types.map(currType => (
                                 <span
-                                    className={[s.type, s[currType.type.name]].join(' ')}>{currType.type.name}</span>
+                                    className={[s.type, s[currType.type.name]].join(' ')}>{`${currType.type.name + ' '}`}</span>
                             ))}</div>}
                         </div>)}
                 </div>
@@ -75,4 +76,3 @@ class Pokemons extends React.Component {
 }
 
 
-export default Pokemons;

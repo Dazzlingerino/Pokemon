@@ -4,6 +4,7 @@
 
 }
 .app-content {
+  overflow-y: scroll;
   display: grid;
   border: 1px solid;
 }

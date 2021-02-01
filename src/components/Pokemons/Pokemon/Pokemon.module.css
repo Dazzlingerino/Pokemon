@@ -13,12 +13,15 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+
 .item{
     grid-area: sid;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
     place-self: start;
-    margin-top: 206px;
-    padding:10px;
-    padding-bottom:20px;
+    margin-top: 212px;
+    padding: 10px 10px 20px;
     width:100%;
     height:auto;
     border: 1px solid black;

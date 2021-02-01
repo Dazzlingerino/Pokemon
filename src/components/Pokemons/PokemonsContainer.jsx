@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Pokemons from "./Pokemons";
+/*import Pokemons from "./Pokemons";*/
 import {loadMoreAC, setEachPokemonAC, setEachPokemonImgAC, setPokemonsAC} from "../../Redux/pokemonsReducer";
 import * as axios from "axios";
 
@@ -24,7 +24,6 @@ const mapDispatchToProps = (dispatch) => {
     }}
 
 
-const PokemonsContainer = connect(mapStateToProps, mapDispatchToProps)(Pokemons);
+/*const PokemonsContainer = connect(mapStateToProps, mapDispatchToProps)(Pokemons);*/
 
 
-export default PokemonsContainer;
