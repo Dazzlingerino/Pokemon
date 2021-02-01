@@ -16,13 +16,15 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
 .pokemons {
     display:grid;
-    grid-template-columns: 1fr 100px;
+    grid-template-columns: 0.7fr 320px;
     grid-template-areas:
             'pok sid'
             'load load';
 
     gap: 15px 15px;
     margin-left: 5px;
+    margin-right: 0px;
+    padding-tight:0px;
 
 }
 .pokemonsButton {
@@ -32,7 +34,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 .picture{
     align-self: center;
 }
-.picture img{
+.picture .pocIMG{
     object-fit: contain;
     height: 90px;
     margin: 0 auto;
@@ -40,39 +42,40 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
 .pokeName{
     align-self: center;
-    margin: 20px 0px;
+    margin: 20px 0px 4px;
     font-weight: 700;
     text-transform: capitalize ;
 }
 .pokemon {
     display: flex;
     flex-direction:column;
-    /*align-items: center;*/
-    padding: 20px;
+    padding: 10px;
+    padding-bottom:25px;
     border: 1px solid;
 
 }
 .typesBox{
     display:flex;
-    align-self: center;
-    justify-content:space-around;
-    width:30%;
+
+    margin-left: -10px;
+    margin-right:  15px;
 
 }
 .gridForPok {
     display:grid;
     grid-area:pok;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px 15px;
+    gap: 25px 25px;
+    justify-self: center;
     margin-left: 5px;
+
 }
 .type {
-
     font-weight: 500;
     text-transform: uppercase ;
-    padding: 1% 6%;
-    border-radius: 6px ;
-    margin:0% 10%;
+
+    border-radius: 3px ;
+    margin:0% 6%;
 }
 .bug {
     background-image: linear-gradient(0deg, #5b2424, #807072);
@@ -111,8 +114,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     border: 1px solid #cb1aff;
 }
 .ground {
-    background-image: linear-gradient(0deg, #5b0e0e, #7e5b5b);
-    border: 1px solid #5b0e0e;
+    background-image: linear-gradient(0deg, #702222, #7e5b5b);
+    border: 1px solid #702222;
 }
 .ice {
     background-image: linear-gradient(0deg, #1297ef, #5dc1f5);

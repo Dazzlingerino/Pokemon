@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Pokemon.module.css'
+import style from "../Pokemons.module.css";
 
 const Pokemon = ({currentPokemon,visible}) => {
 
@@ -7,13 +8,17 @@ const Pokemon = ({currentPokemon,visible}) => {
 
     return (
         <div className={classes.item}>
-            <table>
-                <tr>
-                    <th style={{textTransform: 'capitalize'}}>{currentPokemon !== -1 ? `${currentPokemon.name} ${currentPokemon.id.toString().padStart(4, '#0')}` : null}</th>
-                </tr>
+            <picture className={classes.picturePOK}>
+                <img className={classes.imgItem} src={`https://pokeres.bastionbot.org/images/pokemon/${currentPokemon.id}.png/`}/>
+            </picture>
+            <div style={{marginLeft:'60px',marginBottom:'10px'}}>
+                <th style={{textTransform: 'capitalize',fontWeight:'700',fontSize:'2em'}}>{currentPokemon !== -1 ? `${currentPokemon.name} ${currentPokemon.id.toString().padStart(4, '#0')}` : null}</th>
+            </div>
+            <table >
+
                 <tr>
                     <td>Type</td>
-                    <td> {currentPokemon.types && currentPokemon.types.map(currType => currType.type.name)}</td>
+                    <td style={{textTransform:'capitalize'}}> {currentPokemon.types && currentPokemon.types.map(currType => `${currType.type.name + ' ' }`)}</td>
                 </tr>
                 {currentPokemon.stats && currentPokemon.stats.map(
                     currStat => (<tr>
@@ -22,7 +27,6 @@ const Pokemon = ({currentPokemon,visible}) => {
                     </tr>))
 
                 }
-
                 <tr>
                     <td>Weight</td>
                     <td>{currentPokemon.weight}</td>
