@@ -44,7 +44,7 @@ export default function Pokedex() {
                         <picture className={s.picture}>
                             <img className={s.pocIMG}
                                  src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png/`}
-                             alt={'Error with showing pokemon image'}/>
+                                 alt={'Error with showing pokemon image'}/>
                         </picture>
                         <div className={s.pokeName}> {item.name}</div>
                         {<div className={s.typesBox}> {item.types && item.types.map(currType => (

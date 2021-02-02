@@ -8,14 +8,15 @@ const Pokemon = ({currentPokemon, onClick}) => {
             <picture className={s.picturePOK}>
                 <img className={s.imgItem}
                      src={`https://pokeres.bastionbot.org/images/pokemon/${currentPokemon.id}.png/`}
-                alt={'Error with showing pokemon image'}/>
+                     alt={'Error with showing pokemon image'}/>
             </picture>
-            <div style={{marginLeft: '60px', marginBottom: '10px'}}>
-                <th style={{
-                    textTransform: 'capitalize',
-                    fontWeight: '700',
-                    fontSize: '2em'
-                }}>{currentPokemon !== -1 ? `${currentPokemon.name} #${currentPokemon.id.toString().padStart(3, '0')}` : null}</th>
+            <div style={{
+                textAlign: 'center',
+                margin: '4px',
+                textTransform: 'capitalize',
+                fontWeight: '700',
+                fontSize: '2em'
+            }}>{currentPokemon !== -1 ? `${currentPokemon.name} #${currentPokemon.id.toString().padStart(3, '0')}` : null}
             </div>
             <table>
                 <tr>
