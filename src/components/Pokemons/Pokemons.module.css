@@ -1,6 +1,7 @@
 .pokemons {
     display: grid;
     grid-template-columns: 0.7fr 320px;
+    grid-template-rows: 100%;
     grid-template-areas:
             'pok sid'
             'load sid';
@@ -10,13 +11,13 @@
 }
 
 .pokemonsButton {
+    max-height: 50px;
     font-weight: 700;
     font-size: 1.5em;
     color: white;
     background-color: #2587f9;
     grid-area: load;
-    justify-self: center;
-    padding: 10px 185px;
+    padding: 10px 25px;
     border-radius: 7px;
     border: 1px solid #2587f9;
 }
@@ -40,32 +41,31 @@
 
 .pokemon {
     display: flex;
+    max-height: 150px;
     flex-direction: column;
     padding: 10px 10px 25px;
     border: 1px solid blue;
     border-radius: 3px;
-
 }
 
 .typesBox {
     display: flex;
     margin-left: -10px;
     margin-right: 15px;
-
 }
 
 .gridForPok {
     display: grid;
     grid-area: pok;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 25px 25px;
     justify-self: center;
     margin-left: 5px;
-
-
 }
 
 .type {
+    cursor: pointer;
     padding: 3px 6px;
     font-weight: 480;
     text-transform: capitalize;

@@ -9,6 +9,7 @@ export default function Pokedex() {
     const [pokemons, setPokemons] = useState([]);
     const [currentPokemon, setCurrentPokemon] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [filterType, setFilterType] = useState(undefined);
 
 
     useEffect(() => {
@@ -32,12 +33,17 @@ export default function Pokedex() {
         setPokemons([...pokemons, ...pokemonInfo.map(item => item.data)])
     }
 
+    function handleShowPokWithThisType(type) {
+        console.log(type)
+        setFilterType(type)
+    }
+
 
     return (
         <div className={s.pokemons}>
             <div className={s.gridForPok}>
-                {pokemons.sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => (
-                    <div className={s.pokemon} onClick={() => {
+                {pokemons.filter(pok => !filterType || pok.types.some(type => type.type.name === filterType)).sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => (
+                    <div className={s.pokemon} onDoubleClick={() => {
                         setCurrentPokemon(item)
                         setIsVisible(true)
                     }} key={item.objectID}>
@@ -48,7 +54,8 @@ export default function Pokedex() {
                         </picture>
                         <div className={s.pokeName}> {item.name}</div>
                         {<div className={s.typesBox}> {item.types && item.types.map(currType => (
-                            <span className={[s.type, s[currType.type.name]].join(' ')}>
+                            <span onClick={() => handleShowPokWithThisType(currType.type.name)}
+                                  className={[s.type, s[currType.type.name]].join(' ')}>
                                 {`${currType.type.name + ' '}`}
                             </span>
                         ))}</div>}
