@@ -1,3 +1,11 @@
+@media (max-width: 520px) {
+    .item {
+    -webkit-transform: scale(0.66, 0.66);
+    align-items: center;
+    box-sizing: border-box;
+
+}}
+
 .item {
     grid-area: sid;
     position: -webkit-sticky;

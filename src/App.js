@@ -7,10 +7,10 @@ import Pokedex from "./components/Pokemons/Pokedex";
 const App = () => {
   return (
       <div>
-        <div className='app-wrapper'>
+        <div className='header-wrapper'>
           <Header />
           </div>
-          <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+          <div className='app-wrapper' style={{maxWidth:'1200px',margin:'0 auto'}}>
            <Pokedex />
           </div>
           </div>
