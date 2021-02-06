@@ -1,16 +1,15 @@
 .pokemons {
     display: grid;
-    grid-template-columns: 0.7fr 320px;
+    grid-template-columns: 0.7fr 1fr;
     grid-template-rows: 100%;
     grid-template-areas:
             'pok sid'
-            'load sid';
+            'load .';
     gap: 15px 15px;
-    margin-left: 5px;
-    margin-right: 0;
 }
 
 .pokemonsButton {
+    cursor: pointer;
     max-height: 50px;
     font-weight: 700;
     font-size: 1.5em;
@@ -22,16 +21,6 @@
     border: 1px solid #2587f9;
 }
 
-.picture {
-    align-self: center;
-}
-
-.pocIMG {
-    object-fit: contain;
-    height: 90px;
-    margin: 0 auto;
-}
-
 .pokeName {
     align-self: center;
     margin: 20px 0 4px;
@@ -40,15 +29,17 @@
 }
 
 .pokemon {
+    cursor: grab;
     display: flex;
-    max-height: 150px;
     flex-direction: column;
-    padding: 10px 10px 25px;
+    padding: 10px;
     border: 1px solid blue;
     border-radius: 3px;
+    max-height: 220px;
 }
 
 .typesBox {
+    width: 100%;
     display: flex;
     margin-left: -10px;
     margin-right: 15px;
@@ -58,8 +49,8 @@
     display: grid;
     grid-area: pok;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 25px 25px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 15px 15px;
     justify-self: center;
     margin-left: 5px;
 }
@@ -162,3 +153,51 @@
     background-image: linear-gradient(0deg, #fa531a, #f8b098);
     border: 1px solid #fa531a;
 }
+
+@media (max-width: 1010px) {
+    .pokemon {
+        width: 15vw !important;
+    }
+
+    .typesBox span {
+        zoom: 0.9;
+        width: 10vw !important;
+    }
+}
+
+@media (max-width: 790px) {
+    .pokemon {
+        width: 13.5vw !important;
+    }
+
+    .typesBox span {
+        zoom: 0.6;
+        width: 8vw !important;
+    }
+
+    .pokeName {
+        font-size: 80%;
+    }
+}
+
+/*
+
+@media (max-width: 620px) {
+    .pokemon, .types {
+        -webkit-transform: scale(0.56, 0.56);
+        margin: 0;
+        align-items: center;
+        box-sizing: border-box;
+        padding-bottom: 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    .pokemon, .types {
+        -webkit-transform: scale(0.5, 0.5);
+        margin: 0;
+        align-items: center;
+        box-sizing: border-box;
+        padding-bottom: 16px;
+    }
+}*/

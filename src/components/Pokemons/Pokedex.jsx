@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import s from './Pokemons.module.css'
+import './Pokemons.module.css'
 import Pokemon from "./Pokemon/Pokemon";
 
 
@@ -34,7 +35,6 @@ export default function Pokedex() {
     }
 
     function handleShowPokWithThisType(type) {
-        console.log(type)
         setFilterType(type)
     }
 
@@ -42,23 +42,25 @@ export default function Pokedex() {
     return (
         <div className={s.pokemons}>
             <div className={s.gridForPok}>
-                {pokemons.filter(pok => !filterType || pok.types.some(type => type.type.name === filterType)).sort((a, b) => (a.id > b.id) ? 1 : -1).map(item => (
-                    <div className={s.pokemon} onDoubleClick={() => {
+                {pokemons.filter(pok => !filterType || pok.types.some(type => type.type.name === filterType)).sort((a, b) => (a.id > b.id) ? 1 : -1).map((item, index) => (
+                    <div key={item.index}
+                         className={s.pokemon} onClick={() => {
                         setCurrentPokemon(item)
                         setIsVisible(true)
-                    }} key={item.objectID}>
-                        <picture className={s.picture}>
-                            <img className={s.pocIMG}
-                                 src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png/`}
-                                 alt={'Error with showing pokemon image'}/>
-                        </picture>
-                        <div className={s.pokeName}> {item.name}</div>
-                        {<div className={s.typesBox}> {item.types && item.types.map(currType => (
-                            <span onClick={() => handleShowPokWithThisType(currType.type.name)}
+                    }}>
+                        <img key={item.index}
+                             style={{maxWidth: '100%'}}
+                             src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png/`}
+                             alt={'Error with showing pokemon'}/>
+                        <div key={item.index} className={s.pokeName}> {item.name}</div>
+                        <div key={item.index}
+                             className={s.typesBox}> {item.types && item.types.map((currType, index) => (
+                            <span key={currType.index}
+                                  onClick={() => handleShowPokWithThisType(currType.type.name)}
                                   className={[s.type, s[currType.type.name]].join(' ')}>
                                 {`${currType.type.name + ' '}`}
                             </span>
-                        ))}</div>}
+                        ))}</div>
                     </div>
                 ))}
             </div>
