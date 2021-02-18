@@ -24,6 +24,14 @@ td {
     height: 300px;
 }
 
+.statName, .typeName {
+    text-transform: capitalize;
+}
+
+img {
+    max-width: 100%;
+}
+
 .pokeName {
     text-align: center;
     margin: 4px;
@@ -34,14 +42,14 @@ td {
 
 @media (max-width: 940px) {
     .pokeName {
-        font-weight: 700 !important;
-        font-size: 1.5em !important;
+        font-weight: 700;
+        font-size: 1.5em;
     }
 }
 
 @media (max-width: 760px) {
     .pokeName {
-        font-weight: 700 !important;
-        font-size: 1em !important;
+        font-weight: 700;
+        font-size: 1em;
     }
 }

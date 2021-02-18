@@ -48,13 +48,10 @@ export default function Pokedex() {
                         setCurrentPokemon(item)
                         setIsVisible(true)
                     }}>
-                        <img key={item.index}
-                             style={{maxWidth: '100%'}}
-                             src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png/`}
+                        <img src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png/`}
                              alt={'Error with showing pokemon'}/>
-                        <div key={item.index} className={s.pokeName}> {item.name}</div>
-                        <div key={item.index}
-                             className={s.typesBox}> {item.types && item.types.map((currType, index) => (
+                        <div className={s.pokeName}> {item.name}</div>
+                        <div className={s.typesBox}> {item.types && item.types.map((currType, index) => (
                             <span key={currType.index}
                                   onClick={() => handleShowPokWithThisType(currType.type.name)}
                                   className={[s.type, s[currType.type.name]].join(' ')}>

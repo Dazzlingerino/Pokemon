@@ -5,8 +5,7 @@ import './Pokemon.module.css'
 const Pokemon = ({currentPokemon}) => {
     return (
         <div className={s.item}>
-            <img style={{maxWidth: '100%'}}
-                 src={`https://pokeres.bastionbot.org/images/pokemon/${currentPokemon.id}.png/`}
+            <img src={`https://pokeres.bastionbot.org/images/pokemon/${currentPokemon.id}.png/`}
                  alt={'Error with showing pokemon'}/>
             <div className={s.pokeName}>
                 {currentPokemon !== -1 ? `${currentPokemon.name} #${currentPokemon.id.toString().padStart(3, '0')}` : null}
@@ -14,14 +13,12 @@ const Pokemon = ({currentPokemon}) => {
             <table>
                 <tr>
                     <td>Type</td>
-                    <td style={{textTransform: 'capitalize'}}> {currentPokemon.types && currentPokemon.types.map(currType => `${currType.type.name + ' '}`)}</td>
+                    <td className={s.typeName}> {currentPokemon.types && currentPokemon.types.map(currType => `${currType.type.name + ' '}`)}</td>
                 </tr>
                 {currentPokemon.stats && currentPokemon.stats.map((currStat, id) => (
                     <tr key={currStat.id}>
-                        <td key={currStat.id}
-                            style={{textTransform: 'capitalize'}}>{getStatName(currStat.stat.name)}</td>
-                        <td key={currStat.id}
-                        >{currStat.base_stat}</td>
+                        <td className={s.statName}>{getStatName(currStat.stat.name)}</td>
+                        <td>{currStat.base_stat}</td>
                     </tr>))
                 }
                 <tr>

@@ -5,7 +5,7 @@ import Pokedex from "./components/Pokemons/Pokedex";
 
 const App = () => {
     return (
-        <div className='app-wrapper' style={{maxWidth: '1200px', margin: '0 auto', padding: '0 15px'}}>
+        <div className='app-wrapper'>
             <header className='header'> Pokedex
             </header>
             <div className='container'>
